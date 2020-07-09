@@ -4,7 +4,8 @@ import commonjs from '@rollup/plugin-commonjs';
 import babel from '@rollup/plugin-babel';
 // locates third party modules in node_modules
 import resolve from '@rollup/plugin-node-resolve';
-import pkg from './package.json';
+import { uglify } from 'rollup-plugin-uglify';
+
 // typescript
 // import typescript from '@rollup/plugin-typescript';
 
@@ -12,7 +13,7 @@ import pkg from './package.json';
 const extensions = ['.js', '.ts', '.jsx', '.tsx'];
 
 export default {
-  input: 'src/template.ts',
+  input: 'src/convert.ts',
   // external modules that exclude from the bundle file
   external: [],
   plugins: [
@@ -23,23 +24,12 @@ export default {
       extensions,
       babelHelpers: 'bundled', // 'runtime' for building libraries with @babel/plugin-transform-runtime and @babel/runtime, 'bundled' for building application code
     }),
+    uglify(),
   ],
-  output: [
-    // browser-friendly UMD build
-    // Browser and NodeJS
-    {
-      file: pkg.browser,
-      format: 'umd',
-      name: 'templateBabel',
-    },
+  output:
     // CommonJS (Node) and ES module (for bundlers) build
     {
-      file: pkg.main,
+      file: 'dist/convert.js',
       format: 'cjs',
     },
-    {
-      file: pkg.module,
-      format: 'es',
-    },
-  ],
 };

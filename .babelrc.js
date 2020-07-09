@@ -6,7 +6,7 @@ const presets = [
     {
       isTsx: false, // Forcibly enables jsx parsing.
       //  jsxPragma: 'React', // Replace the function used when compiling JSX expressions
-      allExtensions: false, // Indicates that every file should be parsed as TS or TSX (depending on the isTSX option).
+      allExtensions: true, // Indicates that every file should be parsed as TS or TSX (depending on the isTSX option).
       allowNamespaces: true, // Enables compilation of TypeScript namespaces.
       allowDeclareFields: false, // default true in Babel 8
       onlyRemoveTypeImports: false, // When set to true, the transform will only remove type-only imports (introduced in TypeScript 3.8).
@@ -14,9 +14,9 @@ const presets = [
   ],
 ];
 
-const plugins = ['@babel/plugin-proposal-class-properties'];
+const plugins = ['@babel/plugin-proposal-class-properties', 'macros'];
 
-const ignore = ['dist', 'src/__tests__'];
+const ignore = ['dist'];
 
 module.exports = {
   presets,

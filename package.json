@@ -1,19 +1,29 @@
 {
-  "name": "ts-rollup-boilerplate",
-  "version": "0.0.2",
-  "description": "A simple Typescript bolierplate with baisc rollup configuration",
-  "author": "tizee",
+  "name": "react-domproperty",
+  "version": "1.0.0",
+  "description": "Convert HTML DOM attributes to React DOM attributes",
+  "author": "tizee <pobomp@gmail.com>(https://tizee.github.io.com)",
   "license": "MIT",
+  "main": "index.js",
+  "files": [
+    "dist",
+    "index.js"
+  ],
   "scripts": {
     "ts-check": "tsc --noEmit",
     "ts-check:watch": "tsc --noEmit --watch",
-    "build": "npx rollup -c",
-    "dev": "npx rollup -c -w"
+    "build": "npx rollup -c && node ./scripts/build.js",
+    "doc": "node ./scripts/build.js",
+    "dev": "npx rollup -c -w",
+    "test": "jest",
+    "coverage": "jest --coverage"
   },
-  "main": "dist/bundle.cjs.js",
-  "module": "dist/bundle.esm.js",
-  "browser": "dist/bundle.umd.js",
-  "types": "dist/types/index.d.ts",
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run test",
+      "pre-commit": "npm run test"
+    }
+  },
   "devDependencies": {
     "@babel/cli": "^7.10.1",
     "@babel/core": "^7.10.2",
@@ -24,13 +34,43 @@
     "@rollup/plugin-commonjs": "^13.0.0",
     "@rollup/plugin-node-resolve": "^8.0.1",
     "@rollup/plugin-typescript": "^4.1.2",
+    "@types/jest": "^26.0.4",
+    "@types/preval.macro": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^3.2.0",
     "@typescript-eslint/parser": "^3.2.0",
+    "babel-plugin-preval": "^5.0.0",
+    "codecov": "^3.7.0",
     "eslint": "^7.2.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.3",
+    "husky": "^4.2.5",
+    "jest": "^26.1.0",
     "prettier": "^2.0.5",
+    "preval.macro": "^5.0.0",
     "rollup": "^2.16.1",
+    "rollup-plugin-uglify": "^6.0.4",
+    "semantic-release": "^17.1.1",
+    "ts-jest": "^26.1.1",
     "typescript": "^3.9.5"
+  },
+  "keywords": [
+    "react",
+    "html",
+    "dom",
+    "attribute",
+    "convert",
+    "react-domproperty"
+  ],
+  "homepage": "https://github.com/tizee/react-domproperty#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tizee/react-domproperty"
+  },
+  "bugs": {
+    "url": "https://github.com/tizee/react-domproperty"
+  },
+  "engines": {
+    "node": ">=12",
+    "npm": ">=6"
   }
 }
