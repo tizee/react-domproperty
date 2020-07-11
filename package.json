@@ -16,6 +16,7 @@
     "doc": "node ./scripts/build.js",
     "dev": "npx rollup -c -w",
     "test": "jest",
+    "test:watch": "jest --watch",
     "coverage": "jest --coverage"
   },
   "husky": {

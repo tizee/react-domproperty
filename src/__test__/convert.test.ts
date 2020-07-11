@@ -9,4 +9,7 @@ describe('Convert', () => {
   test('should convert html attribute to react attribute', () => {
     expect(convert('crossorigin')).toBe('crossOrigin');
   });
+  test('should bypass aria-*', () => {
+    expect(convert('aria-ok')).toBe('aria-ok');
+  });
 });

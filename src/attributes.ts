@@ -9,7 +9,55 @@ const config = {};
 const reactlize = (attr)=> attr.replace(/[\-\:]([a-z])/g, val => val[1].toUpperCase());
 const attributes = 
 [
+  ['accelerate','accelerate'],
+  ['intercept','intercept'],
+  ['exponent','exponent'],
+  ['offset','offset'],
+  ['decelerate','decelerate'],
+  ['additive','additive'],
+  ['accumulate','accumulate'],
+  ['tableValues','tableValues'],
+  ['slope','slope'],
+  ['fill','fill'],
+  ['calcMode','calcMode'],
+  ['type','type'],
+  ['values','values'],
+  ['keyTimes','keyTimes'],
+  ['keySplines','keySplines'],
+  ['from','from'],
+  ['to','to'],
+  ['by','by'],
+  ['x','x'],
+  ['y','y'],
+  ['begin','begin'],
+  ['dur','dur'],
+  ['end','end'],
+  ['min','min'],
+  ['max','max'],
+  ['repeatCount','repeatCount'],
+  ['repeatDur','repeatDur'],
+  ['restart','restart'],
+  ['result','result'],
+  ['width','width'],
+  ['attributeType','attributeType'],
+  ['attributeName','attributeName'],
+  ['height','height'],
+  ['requiredFeatures','requiredFeatures'],
+  ['style','style'],
+  ['lang','lang'],
+  ['accesskey','accessKey'],
+  ['autocapitalize','autoCapitalize'],
+  ['contextmenu','contextMenu'],
+  ['spellcheck','spellCheck'],
+  ['dropzone','dropZone'],
+  ['inputmode','inputMode'],
+  ['itemprop','itemProp'],
+  ['itemid','itemId'],
+  ['itemref','itemRef'],
+  ['itemscope','itemScope'],
+  ['itemtype','itemType'],
   // react attributes which are not camlCase.
+  ['id','id'],
   ['accept-charset', 'accpetCharset'],
   ['class', 'className'],
   ['for', 'htmlfor'],
@@ -48,6 +96,7 @@ const attributes =
   ['reversed', 'reversed'],
   ['scoped', 'scoped'],
   ['seamless', 'seamless'],
+  ['systemLanguage','systemLanguage'],
   // Microdata
   ['itemscope', 'itemScope'],
   // React props that React team set as DOM properties rather than attributes. They are all booleans.
@@ -162,28 +211,33 @@ attributes.forEach(([html, rc]) => {
 });
 
 const handlers = [
+  'begin',
+  'repeat',
+  'unload',
   'copy',
   'cut',
   'paste',
   'toggle',
   'encrypted',
+  'activate',
   'abort',
-  // 'animationCancel', // not supported in React
+  'animationCancel',
   'animationEnd',
   'animationIteration',
   'animationStart',
   'auxClick',
+  'end',
   'blur',
   'error',
   'focus',
   'cancel',
   'canPlay',
   'canPlayThrough',
-  'change', // React onChange does not use browser behavior
+  'change',
   'click',
   'close',
   'contextMenu',
-  // 'cuechange',  // not supported in React
+  'cueChange',
   'drag',
   'dragEnd',
   'dragEnter',
@@ -195,7 +249,7 @@ const handlers = [
   'durationChange',
   'emptied',
   'ended',
-  // 'formdata', // not supported in React
+  'formdata',
   'gotPointerCapture',
   'input',
   'invalid',
@@ -205,7 +259,7 @@ const handlers = [
   'load',
   'loadedData',
   'loadedMetadata',
-  // 'loadEnd', // not supported in React
+  'loadEnd',
   'loadStart',
   'lostPointerCapture',
   'mouseDown',
@@ -215,7 +269,7 @@ const handlers = [
   'mouseOut',
   'mouseOver',
   'mouseUp',
-  // 'mouseWheel',
+  'mouseWheel',
   'wheel',
   'pause',
   'play',
@@ -228,20 +282,20 @@ const handlers = [
   'pointerOut',
   'pointerEnter',
   'pointerLeave',
-  // 'pointerLockChange', // not supported in React
-  // 'pointerLockError', // not supported in React
+  'pointerLockChange',
+  'pointerLockError',
   'progress',
   'rateChange',
   'reset',
-  // 'resize', // not supported in React
+  'resize',
   'scroll',
   'seeked',
   'seeking',
   'select',
   'selectStart',
-  // 'selectionChange', // not supported in React
-  // 'show', // not supported in React
-  // 'sort', // not supported in React
+  'selectionChange',
+  'show',
+  'sort',
   'stalled',
   'submit',
   'suspend',
@@ -251,11 +305,13 @@ const handlers = [
   'touchEnd',
   'touchMove',
   'touchStart',
-  // 'transitionCancel', // not supported in React
+  'transitionCancel',
   'transitionEnd',
-  // 'transitionRun', // not supported in React
-  // 'transitionStart', // not supported in React
+  'transitionRun',
+  'transitionStart',
   'waiting',
+  'focusIn',
+  'focusOut',
 ].map(el => {
   const reactHandler = 'on' + el[0].toUpperCase() + el.substring(1);
   return [ 'on' + el.toLowerCase(), reactHandler];
