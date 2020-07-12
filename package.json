@@ -4,15 +4,15 @@
   "description": "Convert HTML DOM attributes to React DOM attributes",
   "author": "tizee <pobomp@gmail.com>(https://tizee.github.io.com)",
   "license": "MIT",
-  "main": "index.js",
+  "main": "dist/convert.js",
+  "types": "dist/types/convert.d.ts",
   "files": [
-    "dist",
-    "index.js"
+    "dist"
   ],
   "scripts": {
     "ts-check": "tsc --noEmit",
     "ts-check:watch": "tsc --noEmit --watch",
-    "build": "npx rollup -c && node ./scripts/build.js",
+    "build": "tsc && npx rollup -c && node ./scripts/build.js",
     "doc": "node ./scripts/build.js",
     "dev": "npx rollup -c -w",
     "test": "jest",
@@ -49,6 +49,7 @@
     "prettier": "^2.0.5",
     "preval.macro": "^5.0.0",
     "rollup": "^2.16.1",
+    "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-uglify": "^6.0.4",
     "semantic-release": "^17.1.1",
     "ts-jest": "^26.1.1",

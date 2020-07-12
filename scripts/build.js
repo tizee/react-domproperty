@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { attributes } = require('../index');
+const attributes = require('./attributes');
 
 /**
  * | HTML | React |

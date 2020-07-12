@@ -1,4 +1,4 @@
-import { convert } from '../convert';
+import convert from '../convert';
 
 describe('Convert', () => {
   test('should bypass not html attribute', () => {
