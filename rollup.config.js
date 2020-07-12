@@ -24,7 +24,7 @@ export default [
         targets: [
           {
             src: 'build/types/convert.d.ts',
-            dest: 'dist/types/convert.d.ts',
+            dest: 'dist/types/',
           },
         ],
         verbose: true,
