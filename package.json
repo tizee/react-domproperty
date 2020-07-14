@@ -2,7 +2,7 @@
   "name": "react-domproperty",
   "version": "1.0.6",
   "description": "Convert HTML DOM attributes to React DOM attributes",
-  "author": "tizee <pobomp@gmail.com>(https://tizee.github.io.com)",
+  "author": "tizee <pobomp@gmail.com>(https://tizee.github.io)",
   "license": "MIT",
   "main": "dist/convert.js",
   "types": "dist/types/convert.d.ts",
